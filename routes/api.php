@@ -24,3 +24,13 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('/register', 'API\UsersController@register');
     Route::get('/logout', 'API\UsersController@logout')->middleware('auth:api');
 });
+
+//Biodata
+Route::group(['prefix' => 'biodata'], function () {
+    Route::get('/index', 'API\BiodataController@index');
+    Route::post('/store', 'API\BiodataController@store');
+    Route::get('/show/{id}', 'API\BiodataController@show');
+    Route::get('/edit/{id}', 'API\BiodataController@edit');
+    Route::post('/update/{id}', 'API\BiodataController@update');
+    Route::get('/destroy/{id}', 'API\BiodataController@destroy');
+});
